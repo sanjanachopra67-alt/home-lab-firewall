@@ -8,8 +8,7 @@ then test the rules and analyse the logs.
 VirtualBox on Windows 11, OPNsense, Linux Mint (client), Ubuntu Server (web server)
 
 ## Network design
-   ![Network diagram](diagrams/Screenshot_2026-10-11_125610.png)
-
+![Network diagram](diagrams/Screenshot%202026-10-11%20125610.png)
 | Zone | Subnet | Firewall IP |
 |------|--------|-------------|
 | WAN  | 10.0.2.0/24 | 10.0.2.15 |
