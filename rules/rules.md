@@ -39,4 +39,7 @@ top to bottom and the first match wins. Block rules have logging turned on.
 - The default "allow LAN to any" rule was deleted and replaced with L1 to L7.
 
 ## Screenshots
-![LAB rules](../screenshots/09-lab-rules.png)
+![LAB rules](screenshots/screenshots/firewall_aliases.png)
+![LAB rules](screenshots/screenshots/firewall_rules.png)
+
+
