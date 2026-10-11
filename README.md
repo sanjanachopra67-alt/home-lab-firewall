@@ -16,6 +16,7 @@ VirtualBox on Windows 11, OPNsense, Linux Mint (client), Ubuntu Server (web serv
 | LAB  | 192.168.20.0/24 | 192.168.20.1 |
 
 ## Security requirements
+![Network diagram](screenshots/screenshots/firewall_rules.png)
 ## Firewall rules
 ## Testing
 ## Log analysis
