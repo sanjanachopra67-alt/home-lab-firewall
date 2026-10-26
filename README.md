@@ -63,7 +63,7 @@ Every test, with expected and actual results and screenshots, is in [tests/test-
 ## Log analysis
 The Live View logs showed each blocked connection with the interface, source, destination and the rule that stopped it. For example, an SSH attempt from the client to the web server was blocked by the rule "Everything else in LAB blocked". More entries are explained in [tests/test-plan.md](tests/test-plan.md).
 
-<img width="518" height="287" alt="log_lab_to_firewall" src="https://github.com/user-attachments/assets/90315fec-1620-4638-abad-be8aa9e0ccd2" />
+![SSH blocked in the log](screenshots/screenshots/client_block.png)
 
 ## Rule order experiment
 I moved the broad "Internet access" rule above the block rule for the LAB. SSH to the web server then got through. I moved it back and it was blocked again. The block rule was still in the list while the allow rule sat above it, but it never matched, so it protected nothing.
@@ -85,11 +85,19 @@ I moved the broad "Internet access" rule above the block rule for the LAB. SSH t
 | Images broke on GitHub | Indented lines, spaces in file names, missing .png | Fixed the paths and file names |
 
 ## What I learned
-- Rules are checked top to bottom and the first match wins, so I tested the order, not just the content.
-- Testing what should be blocked mattered as much as testing what should work.
-- "Filtered" and "closed" in Nmap mean different things: one is a firewall dropping packets, the other is a host replying.
-- A test against the wrong address proves nothing, so I check the target before trusting a result.
-
-
+- I had previously set the rules in a erticular order (1 to 7), I swapped the positions of rule 5 ("Everything else in LAB blocked") and rule 7
+  ("Internet access (last)"). SSH from the client to the web server then got through,
+  because rule 7 passes all traffic from the LAN and was now checked first. Rule 5 was
+  still in the list but never matched. Swapping them back restored the block.
+- Testing what should be blocked mattered as much as testing what should work. For
+  each block rule I wrote a test that tried to break it, compared results before and
+  after the rules, and confirmed in the logs which rule had stopped the traffic. My
+  rule order experiment passed every "does it work" test and was only caught by the
+  test that should have failed.
+- "Filtered" and "closed" in Nmap mean different things. In my scans, port 22 on the
+  web server was filtered because the firewall dropped the packets and nothing came
+  back, while port 443 was closed because the firewall let the traffic through and
+  the server replied that nothing was listening. A closed port shows the traffic got
+  through, and a filtered port shows something blocked it.
 ---
 All testing was done on virtual machines I own, inside an isolated lab.
