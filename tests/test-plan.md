@@ -26,7 +26,7 @@ network worked before restricting it.
 | 8 | Web server | `ping -c 3 -W 2 192.168.10.150` | No reply (LAB cannot reach LAN) | 100% packet loss | PASS |
 | 9 | Client | `traceroute 192.168.20.10` | First hop is the firewall | Hop 1 OPNsense (192.168.10.1), hop 2 192.168.20.10 | PASS |
 
-![Client baseline tests](../screenshots/screenshots/test1_2_3_4_9.png)
+<img width="230" height="224" alt="test1,2,3,4,9" src="https://github.com/user-attachments/assets/8459cc2b-f594-4a21-9dc4-601418462436" />
 
 ![Client pings the firewall](../screenshots/screenshots/test1.png)
 
@@ -70,7 +70,7 @@ Run after replacing the default LAN rule with seven deliberate rules.
 
 ![Web server tests T6 and T7](../screenshots/screenshots/test_web_combined.png)
 
-![Web server can still update](../screenshots/screenshots/test_web_apt_update.png)
+<img width="399" height="134" alt="Screenshot 2026-10-26 120138" src="https://github.com/user-attachments/assets/91674d34-b944-4697-b5bc-bf8be57f0f64" />
 
 ### Observations
 - T3 and T5 together show the rule design. The client can fetch the page (allowed web
@@ -89,7 +89,7 @@ Run after replacing the default LAN rule with seven deliberate rules.
 | Client to web server | `nmap -Pn -p 22,80,443 192.168.20.10` | 80 open, 22 filtered, 443 closed | 80 open, 22 filtered, 443 closed | PASS |
 | Web server to client | `nmap -Pn -p 22,80,443 192.168.10.150` | All filtered | 22, 80 and 443 all filtered | PASS |
 
-![Client to web server](../screenshots/screenshots/ping_client.png)
+<img width="308" height="103" alt="nmap_client_to_web" src="https://github.com/user-attachments/assets/64e38782-5c10-4078-9a6a-76c5c2e0c4a2" />
 
 ![Web server to client](../screenshots/screenshots/test_web_combined.png)
 
@@ -130,7 +130,7 @@ list but never matched, so it protected nothing. Position matters as much as con
 
 ### SSH from the client to the web server (blocked)
 
-![SSH blocked in the log](../screenshots/screenshots/client_block.png)
+<img width="532" height="284" alt="log_ssh_blocked" src="https://github.com/user-attachments/assets/094458e1-7215-4ffb-b54f-6220ddb887eb" />
 
 Live View shows eight blocked TCP entries on the LAN interface, from
 192.168.10.150:55862 to 192.168.20.10:22, all labelled "Everything else in LAB blocked".
@@ -152,7 +152,7 @@ LAB, whether or not a machine is there.
 
 ### Web server pings the firewall (blocked)
 
-![LAB to firewall in the log](../screenshots/screenshots/log_lab_to_firewall.png)
+<img width="518" height="287" alt="log_lab_to_firewall" src="https://github.com/user-attachments/assets/381a70ae-0b31-439d-8b15-a8e67bf176e9" />
 
 Three ICMP entries on the LAB interface, from 192.168.20.10 to 192.168.10.1, were
 blocked by the rule "LAB blocked from domain" (one per ping). This is the rule meant
