@@ -63,7 +63,7 @@ Every test, with expected and actual results and screenshots, is in [tests/test-
 ## Log analysis
 The Live View logs showed each blocked connection with the interface, source, destination and the rule that stopped it. For example, an SSH attempt from the client to the web server was blocked by the rule "Everything else in LAB blocked". More entries are explained in [tests/test-plan.md](tests/test-plan.md).
 
-![SSH blocked in the log](screenshots/screenshots/client_block.png)
+<img width="532" height="284" alt="client_block" src="https://github.com/user-attachments/assets/6a235ad6-9b08-4fe1-8aa5-460ea34274ef" />
 
 ## Rule order experiment
 I moved the broad "Internet access" rule above the block rule for the LAB. SSH to the web server then got through. I moved it back and it was blocked again. The block rule was still in the list while the allow rule sat above it, but it never matched, so it protected nothing.
