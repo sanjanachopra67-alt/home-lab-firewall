@@ -37,8 +37,8 @@ top to bottom and the first match wins. Block rules have logging turned on.
 | L6 | Block (log) | LAN net | This Firewall | Any | No other firewall services are reachable |
 | L7 | Pass | LAN net | Any | Any | Normal internet access, placed last because it is the broadest rule |
 
-![LAN rules](..screenshots/screenshots/firewall_rules_lan_1.png)
-![LAN rules](..screenshots/screenshots/firewall_rules_lan_2.png)
+![LAN rules](../screenshots/screenshots/firewall_rules_lan_1.png)
+![LAN rules](../screenshots/screenshots/firewall_rules_lan_2.png)
 
 ## Design notes
 - L5 sits above L7. If L7 were above it, the LAN could reach every LAB port.
