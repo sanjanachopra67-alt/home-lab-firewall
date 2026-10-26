@@ -12,6 +12,8 @@ top to bottom and the first match wins. Block rules have logging turned on.
 | ADMIN_PORTS | Port | 443 | Firewall admin page |
 | RFC1918 | Network | 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 | All private ranges |
 
+![Firewall aliases](../screenshots/screenshots/firewall_aliases.png)
+
 ## LAB rules (traffic coming from the LAB network)
 
 | # | Action | Source | Destination | Port | Why this rule exists |
@@ -20,6 +22,8 @@ top to bottom and the first match wins. Block rules have logging turned on.
 | B2 | Block (log) | LAB net | This Firewall | Any | Stops the LAB reaching the admin page |
 | B3 | Block (log) | LAB net | LAN net | Any | A compromised server cannot start connections into the trusted LAN |
 | B4 | Pass | LAB net | NOT RFC1918 (inverted) | 80, 443 | Allows software updates from the internet but never to private networks |
+
+![LAB rules](../screenshots/screenshots/firewall_rules.png)
 
 ## LAN rules (traffic coming from the LAN network)
 
@@ -32,6 +36,8 @@ top to bottom and the first match wins. Block rules have logging turned on.
 | L5 | Block (log) | LAN net | LAB net | Any | Blocks everything else going into LAB |
 | L6 | Block (log) | LAN net | This Firewall | Any | No other firewall services are reachable |
 | L7 | Pass | LAN net | Any | Any | Normal internet access, placed last because it is the broadest rule |
+
+![LAN rules](../screenshots/screenshots/firewall_rules_lan.png)
 
 ## Design notes
 - L5 sits above L7. If L7 were above it, the LAN could reach every LAB port.
