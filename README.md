@@ -85,21 +85,11 @@ I moved the broad "Internet access" rule above the block rule for the LAB. SSH t
 | Images broke on GitHub | Indented lines, spaces in file names, missing .png | Fixed the paths and file names |
 
 ## What I learned
-(Write 4 to 5 sentences in your own words. Ideas to start from:)
 - Rules are checked top to bottom and the first match wins, so I tested the order, not just the content.
 - Testing what should be blocked mattered as much as testing what should work.
 - "Filtered" and "closed" in Nmap mean different things: one is a firewall dropping packets, the other is a host replying.
 - A test against the wrong address proves nothing, so I check the target before trusting a result.
 
-## Next steps
-(Choose one and delete the others.)
-- Add Suricata intrusion detection on the firewall
-- Add a VPN with WireGuard
-- Forward the logs to a SIEM such as Wazuh
-- Add a Kali machine on the LAB network to simulate a compromised server
-
-## Hardening
-(Add after Step 33: SSH off, HTTPS on, updated, time zone set.)
 
 ---
 All testing was done on virtual machines I own, inside an isolated lab.
