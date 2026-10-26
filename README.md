@@ -58,12 +58,12 @@ Every test, with expected and actual results and screenshots, is in [tests/test-
 | Nmap, client to web server | 80 open, 22 filtered, 443 closed |
 | Nmap, web server to client | All filtered |
 
-![Nmap from the client](screenshots/screenshots/ping_client.png)
+<img width="399" height="134" alt="Screenshot 2026-10-26 120138" src="https://github.com/user-attachments/assets/ca3ab1c4-0c96-4baf-96c9-fd0b4eb1eb89" />
 
 ## Log analysis
 The Live View logs showed each blocked connection with the interface, source, destination and the rule that stopped it. For example, an SSH attempt from the client to the web server was blocked by the rule "Everything else in LAB blocked". More entries are explained in [tests/test-plan.md](tests/test-plan.md).
 
-![SSH blocked in the log](screenshots/screenshots/client_block.png)
+<img width="518" height="287" alt="log_lab_to_firewall" src="https://github.com/user-attachments/assets/90315fec-1620-4638-abad-be8aa9e0ccd2" />
 
 ## Rule order experiment
 I moved the broad "Internet access" rule above the block rule for the LAB. SSH to the web server then got through. I moved it back and it was blocked again. The block rule was still in the list while the allow rule sat above it, but it never matched, so it protected nothing.
